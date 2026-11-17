@@ -1,7 +1,8 @@
 {
   "name": "dependency-tracker",
+  "description": "Plugins for keeping project dependencies up to date.",
   "owner": {
-    "name": "kidyoh"
+    "name": "Kidus"
   },
   "plugins": [
     {
