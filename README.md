@@ -47,6 +47,18 @@ The skill works on its own, without the plugin. Zip the `skills/dependency-upgra
 | `skills/dependency-upgrade/SKILL.md` | The procedure |
 | `skills/dependency-upgrade/references/` | Commands and pitfalls for each ecosystem |
 
+## Data handling
+
+The plugin has no server of its own and stores nothing outside your project. It does not read or collect personal data.
+
+To find versions and changelogs, it makes read-only requests to public services, sending only package names and version numbers:
+
+- Package registries: npmjs.com, pypi.org, crates.io, proxy.golang.org and pkg.go.dev, plus the registry of any other ecosystem your project uses.
+- Source hosts: github.com and api.github.com (or wherever a package's repository lives) for release notes, changelog files and migration guides.
+- Package documentation sites, such as docs.rs, when a changelog links to them.
+
+Your package manager also contacts its configured registry when it installs an upgraded version, as it would if you ran the upgrade by hand. Your source code is not sent to any of these services.
+
 ## What it will not do
 
 - Skip, delete or weaken a test to get a pass.
