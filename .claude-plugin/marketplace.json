@@ -1,0 +1,13 @@
+{
+  "name": "dependency-tracker",
+  "owner": {
+    "name": "kidyoh"
+  },
+  "plugins": [
+    {
+      "name": "dep-upgrade",
+      "source": "./",
+      "description": "Dependency upgrade agent. Reads changelogs and breaking changes for every outdated dependency, then upgrades, patches the code and runs the tests, one dependency at a time."
+    }
+  ]
+}
