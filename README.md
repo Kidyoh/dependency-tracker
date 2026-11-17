@@ -35,13 +35,7 @@ Start from a clean git working tree. The agent stops if there are uncommitted ch
 
 ## Use on claude.ai
 
-The skill works on its own, without the plugin. Build the zip:
-
-```bash
-./scripts/package-skill.sh
-```
-
-Then upload `dist/dependency-upgrade.zip` under Settings, Capabilities, Skills.
+The skill works on its own, without the plugin. Zip the `skills/dependency-upgrade` folder and upload the zip under Settings, Capabilities, Skills.
 
 ## What is in here
 
@@ -52,7 +46,6 @@ Then upload `dist/dependency-upgrade.zip` under Settings, Capabilities, Skills.
 | `agents/dependency-upgrader.md` | The subagent that does the run |
 | `skills/dependency-upgrade/SKILL.md` | The procedure |
 | `skills/dependency-upgrade/references/` | Commands and pitfalls for each ecosystem |
-| `skills/dependency-upgrade/scripts/detect.sh` | Finds manifests and package managers |
 
 ## What it will not do
 

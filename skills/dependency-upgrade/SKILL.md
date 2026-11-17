@@ -28,7 +28,15 @@ The request may carry these. Without them, upgrade everything outdated.
 ## Step 1: Preflight
 
 1. Confirm the project is a git repository with a clean working tree (`git status --porcelain` prints nothing). If not, stop and say so: reverting a failed upgrade relies on git.
-2. Run `scripts/detect.sh <project root>` from this skill's directory. It prints one line per manifest: ecosystem, directory, package manager, and the manifest file. If the script cannot run, find the manifests yourself.
+2. Find every dependency manifest in the project, including ones in subdirectories and workspace members. Ignore `node_modules`, `vendor`, `target`, `.venv`, `dist` and `build`. Note the directory and package manager for each:
+
+   | Manifest | Ecosystem | Package manager |
+   |---|---|---|
+   | `package.json` | JavaScript/TypeScript | from the `packageManager` field or the lockfile, looking in parent directories for a workspace member |
+   | `pyproject.toml`, `requirements*.txt`, `Pipfile`, `setup.py` | Python | from the lockfile or the `[tool.*]` table |
+   | `go.mod` | Go | go |
+   | `Cargo.toml` | Rust | cargo |
+   | `Gemfile`, `composer.json`, `pom.xml`, `build.gradle(.kts)`, `*.csproj`, `mix.exs`, `pubspec.yaml`, `Package.swift` | Other | see the generic reference |
 3. For each ecosystem found, read its reference file before going further:
    - JavaScript/TypeScript: `references/javascript.md`
    - Python: `references/python.md`
